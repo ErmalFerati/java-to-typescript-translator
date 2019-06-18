@@ -1,7 +1,6 @@
-﻿﻿# Java to typescript translator
+﻿# Java to typescript translator
 
 A simple application made to translate Java classes to Typescript using **Reflection** and **Java Annotations**.
-The whole idea is about annotating Java classes with **@TypescriptClass** and using a Runtime processor to retrieve these classes and process them.
 
 Several examples of annotations are included, such as:
 
@@ -74,12 +73,15 @@ will generate
       public birthday: any;
     
       public constructor() {
-      }  
+      }
+      
     }
 
 ### UserDetails.ts
     export class UserDetails {
+    
       public address: string;
       public rating: number;
       public favoriteSymbol: string;
+      
     }
