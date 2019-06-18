@@ -1,4 +1,4 @@
-﻿# Java to typescript translator
+﻿﻿# Java to typescript translator
 
 A simple application made to translate Java classes to Typescript using **Reflection** and **Java Annotations**.
 The whole idea is about annotating Java classes with **@TypescriptClass** and using a Runtime processor to retrieve these classes and process them.
@@ -41,45 +41,45 @@ Marks a field as a custom field and can be named by passing a parameter to the a
     public class User {
     
 	    @Numerical
-		private BigInteger id;
-	    private String username;
-	     
-	    @Import
-	    private UserDetails details;
+        private BigInteger id;
+        private String username;
+	   
+        @Import
+        private UserDetails details;
   
-		@CustomField(name = "any")
-	    private Date birthday;
+        @CustomField(name = "any")
+        private Date birthday;
     }
     
 ### UserDetails.java
   
 	@TypescriptClass(withConstructor = false)
 	public class UserDetails {
-		private String address;
-		private double rating;
+        private String address;
+        private double rating;
 
-		@Stringified
-		private char favoriteSymbol;
-	}
+        @Stringified
+        private char favoriteSymbol;
+    }
 will generate
 
 ### User.ts
-	import {UserDetails} from "./UserDetails";
-    export class User {  
+    import {UserDetails} from "./UserDetails";
     
-	  public id: number;
+    export class User {
+    
+      public id: number;
       public username: string;
       public details: UserDetails;
       public birthday: any;
-      
-      public constructor() {  
+    
+      public constructor() {
       }  
-	}
+    }
 
 ### UserDetails.ts
     export class UserDetails {
       public address: string;
       public rating: number;
       public favoriteSymbol: string;
-	}
-
+    }
